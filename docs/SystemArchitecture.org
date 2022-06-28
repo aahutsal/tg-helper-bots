@@ -9,7 +9,7 @@ title Current System Architecture
 package main.js {
  class Chat 
  class DataBase
- class User
+ yclass User
 
  Chat ||-- DataBase : Chat use a single instance of DataBase to persist data
  Chat ||-- User
@@ -18,4 +18,5 @@ package main.js {
 
 #+RESULTS:
 [[file:img/my-diagram.png]]
+[[./img/my-diagram.png]]
 

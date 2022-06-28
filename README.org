@@ -13,4 +13,4 @@ Creates people rating based on people group activity
 
 
 ** System Architecture
-Current system architecture and planned architecture are listed [[./docs/SystemArchitecture.html][System Architecture]]
+Current system architecture and planned architecture are listed [[./docs/SystemArchitecture.org][System Architecture]]
