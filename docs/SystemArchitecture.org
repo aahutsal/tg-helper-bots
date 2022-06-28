@@ -4,7 +4,7 @@
 * System Architecture
 ** Current
 
-#+begin_src plantuml :file img/class-diagram.png
+#+begin_src plantuml :file img/class-diagram-current.png
 title Current System Architecture
 package main.js {
  class Chat 
@@ -17,11 +17,11 @@ package main.js {
 #+end_src
 
 #+RESULTS:
-[[file:img/class-diagram.png]]
+[[file:img/class-diagram-current.png]]
 [[./img/class-diagram.png]]
 
 
-#+begin_src plantuml :file img/implementation-diagram.png
+#+begin_src plantuml :file img/implementation-diagram-current.png
  database "Plain filesystem directory" {
    folder "Chats" {
      file "-<user_1_id>.json"
@@ -31,7 +31,7 @@ package main.js {
 #+end_src
  
 #+RESULTS:
-[[file:img/implementation-diagram.png]]
+[[file:img/implementation-diagram-current.png]]
 ** Proposed
 
 #+begin_src plantuml :file img/class-diagram.png
