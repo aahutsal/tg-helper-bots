@@ -3,7 +3,8 @@
 #+author: Arsen A. Hutsal <aahutsal@gmail.com>
 #+date:   <2022-06-28 Tue 12:45>
 
-** This repository is a set of Bots that serves Telegram groups
+** Bots
+This repository is a set of Bots that serves Telegram groups
 
 *** Guard Bot
 Displays Captcha for every new user joining the group. User has limited time to solve the captcha
@@ -11,3 +12,5 @@ Displays Captcha for every new user joining the group. User has limited time to 
 Creates people rating based on people group activity 
 
 
+** System Architecture
+Current system architecture and planned architecture are listed [[./docs/SystemArchitecture.org][System Architecture]]
