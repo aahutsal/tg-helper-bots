@@ -4,12 +4,12 @@
 * System Architecture
 ** Current
 
-#+begin_src plantuml :file img/my-diagram.png
+#+begin_src plantuml :file img/class-diagram.png
 title Current System Architecture
 package main.js {
  class Chat 
  class DataBase
- yclass User
+ class User
 
  Chat ||-- DataBase : Chat use a single instance of DataBase to persist data
  Chat ||-- User
@@ -17,6 +17,103 @@ package main.js {
 #+end_src
 
 #+RESULTS:
-[[file:img/my-diagram.png]]
-[[./img/my-diagram.png]]
+[[file:img/class-diagram.png]]
+[[./img/class-diagram.png]]
 
+
+#+begin_src plantuml :file img/implementation-diagram.png
+ database "Plain filesystem directory" {
+   folder "Chats" {
+     file "-<user_1_id>.json"
+     file "-<user_2_id>.json"
+   }
+ }
+#+end_src
+ 
+#+RESULTS:
+[[file:img/implementation-diagram.png]]
+** Proposed
+
+#+begin_src plantuml :file img/class-diagram.png
+title Proposed System Architecture
+package "types.ts" {
+ class User
+ class Chat 
+ class RedisDB
+
+ Chat ||-- RedisDB 
+ Chat ||-- User
+}
+package "guard_bot.ts" {
+  class GuardBot
+
+  GuardBot |o- Chat
+  GuardBot |o- User
+}
+
+package "rating_bot.ts" {
+ class RatingBot
+ class UserRating
+
+ RatingBot |o-- User
+ RatingBot |o-- Chat
+ RatingBot |o-- UserRating 
+}
+
+package "admanager_bot.ts" {
+ class AdManagerBot
+ class AdvertizementPost
+
+ AdManagerBot |o-- Chat
+ AdManagerBot |o-- User
+ User |o-- AdvertizementPost
+}
+
+#+end_src
+
+#+RESULTS:
+[[file:img/class-diagram.png]]
+
+#+begin_src plantuml :file img/implementation-diagram.png
+node "Bot Server" {
+  package "TelegramHelperBots" {
+    [GuardBot]
+    [RatingBot]
+    [AdManagerBot]
+  }
+}
+
+node "Remote Redis server" {
+ database "Redis server" {
+   folder "Users" {
+   }
+
+   folder "Chats" {
+   }
+ 
+   folder "Ratings" {
+   }
+
+   folder "AdvertizementPosts" {
+   }
+ }
+
+GuardBot ->> Chats
+RatingBot ->> Chats
+AdManagerBot ->> Chats
+
+GuardBot ->> Users
+RatingBot ->> Users
+AdManagerBot ->> Users
+
+RatingBot ->> Ratings
+
+AdManagerBot ->> AdvertizementPosts
+
+
+}
+#+end_src
+
+#+RESULTS:
+[[file:img/implementation-diagram.png]]
+[[./img/implementation-diagram.png]]
