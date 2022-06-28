@@ -1,0 +1,12 @@
+#+title:  Telegram Group Bots
+#+author: Kyrylo Biloshitskyl <>
+#+author: Arsen A. Hutsal <aahutsal@gmail.com>
+#+date:   <2022-06-28 Tue 12:45>
+* Telegram Group Bots
+
+This repository is a set of Bots that serves Telegram groups
+** Guard Bot
+Displays Captcha for every new user joining the group. User has limited time to solve the captcha
+** Rating bot
+Creates people rating based on people group activity 
+
