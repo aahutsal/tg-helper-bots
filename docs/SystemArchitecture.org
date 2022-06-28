@@ -1,0 +1,21 @@
+#+title:  Telegram Group Bots
+#+author: Arsen A. Hutsal <aahutsal@gmail.com>
+#+date:   <2022-06-28 Tue 13:20>
+* System Architecture
+** Current
+
+#+begin_src plantuml :file img/my-diagram.png
+title Current System Architecture
+package main.js {
+ class Chat 
+ class DataBase
+ class User
+
+ Chat ||-- DataBase : Chat use a single instance of DataBase to persist data
+ Chat ||-- User
+}
+#+end_src
+
+#+RESULTS:
+[[file:img/my-diagram.png]]
+
